@@ -20,39 +20,41 @@ class LoginScreen extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-               
                 SizedBox(
-                    height: Get.height * 0.15,
-                    child: Image.asset(
-                      "images/login.png",
-                    )),
-                SizedBox(height: Get.height * 0.03),
+                    height: Get.height * 0.11,
+                    child: const Image(
+                        image: AssetImage(
+                      "assets/images/logo-dark.png",
+                    ))),
+                SizedBox(height: Get.height * 0.08),
                 Container(
-                    alignment: Alignment.topLeft,
+                    alignment: Alignment.topRight,
                     child: Text(
-                      "Welcome!",
+                      "اهلاً",
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall!
-                          .copyWith(color: Colors.grey),
+                          .copyWith(color: Colors.grey, fontFamily: "Tajawal"),
                     )),
                 SizedBox(height: Get.height * 0.02),
                 TextFildeWidget(
+                  text: "الإميل",
                   controller: authController.emailController,
-                  lableText: "enter your email",
-                  icon: const Icon(Icons.account_circle_outlined),
-                ),
-                SizedBox(height: Get.height * 0.03),
-                TextFildeWidget(
-                  controller: authController.passwordController,
-                  lableText: "enter your password",
+                  // lableText: "ادخل الإيميل",
                   icon: const Icon(Icons.email_outlined),
+                ),
+                SizedBox(height: Get.height * 0.01),
+                TextFildeWidget(
+                  text: "رمز الدخول",
+                  controller: authController.passwordController,
+                  //  lableText: "ادخل الرقم السري",
+                  icon: const Icon(Icons.lock_outline),
                 ),
                 Container(
                   alignment: Alignment.centerRight,
                   padding: const EdgeInsets.all(10),
                   child: const Text(
-                    'Forget Password?',
+                    'نسيت رمز الدخول؟',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 13,
@@ -75,13 +77,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-LinearGradient buttonColor() => const LinearGradient(
-      begin: Alignment.topRight,
-      end: Alignment.bottomLeft,
-      colors: [
-        Color.fromARGB(108, 119, 0, 255),
-        Color.fromARGB(108, 198, 175, 224),
-      ],
-      // stops: [0.3, 0.5],
-    );

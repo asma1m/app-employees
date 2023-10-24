@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'app_color.dart';
 
 class CustomTextTheme {
-
-  static const textColorLight = blackColor;
-  static const textColorDark = whiteColor;
+  static Color textColorLight = AppColors.blackColor;
+  static Color textColorDark = AppColors.whiteColor;
 
   static TextTheme get textThemeLight {
     return textTheme(textColor: textColorLight);
@@ -27,7 +26,7 @@ class CustomTextTheme {
         fontWeight: bold,
         letterSpacing: 0.0,
       ),
-      headlineMedium:TextStyle(
+      headlineMedium: TextStyle(
         color: textColor,
         fontSize: 20,
         fontWeight: medium,
@@ -40,13 +39,13 @@ class CustomTextTheme {
         letterSpacing: 0.0,
       ),
       displayLarge: const TextStyle(
-        color: whiteColor,
+        color: AppColors.whiteColor,
         fontSize: 24,
         fontWeight: bold,
         letterSpacing: 0.0,
       ),
       displayMedium: const TextStyle(
-        color: greyColor,
+        color: AppColors.greyColor,
         fontSize: 16,
         fontWeight: regular,
         decoration: TextDecoration.underline,
@@ -60,38 +59,38 @@ class CustomTextTheme {
         letterSpacing: 0.0,
       ),
       bodyLarge: const TextStyle(
-        color: mainColor,
+        color: AppColors.mainColor,
         fontSize: 20,
         fontWeight: bold,
         letterSpacing: 0.0,
       ),
       bodyMedium: const TextStyle(
-        color: mainColor,
+        color: AppColors.mainColor,
         fontSize: 16,
         fontWeight: medium,
         letterSpacing: 0.0,
       ),
       bodySmall: const TextStyle(
-        color: mainColor,
+        color: AppColors.mainColor,
         fontSize: 12,
         fontWeight: regular,
         letterSpacing: 0.0,
       ),
       labelLarge: const TextStyle(
-        color: greyColor,
+        color: AppColors.greyColor,
         fontSize: 20,
         fontWeight: FontWeight.bold,
         letterSpacing: 0.0,
       ),
       labelMedium: const TextStyle(
-        color: greyColor,
+        color: AppColors.greyColor,
         fontSize: 12,
         fontWeight: medium,
         decoration: TextDecoration.underline,
         letterSpacing: 0.0,
       ),
       labelSmall: const TextStyle(
-        color: greyColor,
+        color: AppColors.greyColor,
         fontSize: 12,
         fontWeight: medium,
         letterSpacing: 0.0,

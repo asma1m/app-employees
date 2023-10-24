@@ -26,7 +26,7 @@ class AuthController extends GetxController {
         if (uid != null) {
           await authStorage.write(AppKeys.authKey, uid);
 
-          Get.toNamed(Routs.profilePage);
+          Get.toNamed(Routs.mainScreen);
         }
       },
       onError: (String e) {
