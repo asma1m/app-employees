@@ -1,12 +1,41 @@
+import 'package:employees_app/core/theme/app_color.dart';
+import 'package:employees_app/features/profile/view/widget/settings_app.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../widget/hero_section.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("hiiiiiiii")),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: Get.height * 0.05),
+            Container(
+              padding: const EdgeInsets.only(right: 20),
+              alignment: Alignment.centerRight,
+              height: Get.height * 0.1,
+              child: const Icon(Icons.menu),
+            ),
+            const HeroSection(),
+            SettingsApp()
+          ],
+        ),
+      ),
     );
   }
 }
+
+LinearGradient buttonColor() => const LinearGradient(
+      begin: Alignment.topRight,
+      end: Alignment.bottomLeft,
+      colors: [
+        Color.fromARGB(108, 34, 0, 255),
+        Color.fromARGB(108, 198, 175, 224),
+      ],
+      // stops: [0.3, 0.5],
+    );

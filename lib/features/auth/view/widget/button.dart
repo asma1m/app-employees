@@ -21,9 +21,12 @@ class Button extends StatelessWidget {
         ),
         child: const Center(
           child: Text(
-            'Login',
+            'تسجيل الدخول',
             style: TextStyle(
-                color: whiteColor, fontSize: 16, fontWeight: FontWeight.bold),
+                color: AppColors.whiteColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Tajawal"),
           ),
         ),
       ),
@@ -35,7 +38,7 @@ LinearGradient buttonColor() => const LinearGradient(
       begin: Alignment.topRight,
       end: Alignment.bottomLeft,
       colors: [
-        Color.fromARGB(108, 119, 0, 255),
+        Color.fromARGB(108, 26, 179, 226),
         Color.fromARGB(108, 198, 175, 224),
       ],
       // stops: [0.3, 0.5],
