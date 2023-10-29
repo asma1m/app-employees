@@ -2,6 +2,7 @@ import 'package:employees_app/features/main/view/mein_screen.dart';
 import 'package:get/get.dart';
 
 import '../../features/auth/view/screen/login_screen.dart';
+import '../../features/book_room/view/screen/book_romm_screen.dart';
 import '../../features/meeting_room/view/screens/meeting_room.dart';
 import '../../features/profile/view/screen/profile_screen.dart';
 
@@ -13,7 +14,8 @@ class AppRoutes {
       name: Routs.mainScreen,
       page: () => MainScreen(),
     ),
-    GetPage(name: Routs.meetingRooms, page: () => const MeetingRoomScreen())
+    GetPage(name: Routs.meetingRooms, page: () => const MeetingRoomScreen()),
+    GetPage(name: Routs.bookingRomm, page: () => BookingRoom())
   ];
 }
 
@@ -22,4 +24,5 @@ class Routs {
   static const profilePage = "/profile";
   static const mainScreen = "/mainScreen";
   static const meetingRooms = "/meetingRoomScreen";
+  static const bookingRomm = "/bookingRoom";
 }

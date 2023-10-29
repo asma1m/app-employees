@@ -19,7 +19,7 @@ ThemeData lightThemeData() {
       backgroundColor: AppColors.whiteColor,
       scrimColor: AppColors.greyColor,
     ),
-    iconTheme: IconThemeData(color: AppColors.mainColor),
+    iconTheme: const IconThemeData(color: AppColors.mainColor),
     appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(
         color: AppColors.mainColor,

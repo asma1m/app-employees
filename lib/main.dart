@@ -7,7 +7,6 @@ import 'core/routes/routes.dart';
 import 'core/theme/controller/them_controller.dart';
 import 'features/auth/view/screen/login_screen.dart';
 import 'firebase_options.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 Future<void> main() async {

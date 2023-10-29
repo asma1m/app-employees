@@ -14,23 +14,24 @@ class AppColors {
   static const Color backgraund = Color.fromARGB(108, 34, 0, 255);
   static const Color purpleColor = Color(0xffF2ECFF);
 
-  static LinearGradient backgroundColorDark = const LinearGradient(
-      begin: Alignment.topRight,
-      end: Alignment.bottomLeft,
-      colors: [
-        Color.fromARGB(108, 26, 179, 226),
-        darkColor,
-      ],
-      stops: [
-        00.011,
-        00.011
-      ]);
-  static LinearGradient backgroundColorlight = const LinearGradient(
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-    colors: [
-      Color.fromARGB(108, 26, 179, 226),
-      Color.fromARGB(108, 198, 175, 224),
-    ],
-  );
+  // static LinearGradient backgroundColorDark = const LinearGradient(
+  //     begin: Alignment.topRight,
+  //     end: Alignment.bottomLeft,
+  //     colors: [
+  //       Color.fromARGB(108, 26, 179, 226),
+  //       darkColor,
+  //     ],
+  //     stops: [
+  //       00.011,
+  //       00.011
+  //     ]);
+  // static LinearGradient backgroundColorlight = const LinearGradient(
+  //   begin: Alignment.topRight,
+  //   end: Alignment.bottomLeft,
+  //   colors: [
+  //     Color.fromARGB(108, 26, 179, 226),
+  //     Color.fromARGB(108, 198, 175, 224),
+  //   ],
+  //   stops: [0.03, 0.05],
+  // );
 }

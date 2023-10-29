@@ -26,8 +26,25 @@ class AuthController extends GetxController {
         if (uid != null) {
           await authStorage.write(AppKeys.authKey, uid);
 
-          Get.toNamed(Routs.mainScreen);
+          Get.offAllNamed(Routs.mainScreen);
         }
+      },
+      onError: (String e) {
+        Get.snackbar(
+          'something went wrong',
+          e,
+        );
+      },
+    );
+  }
+
+  // ignore: non_constant_identifier_names
+  SingOut() async {
+    _authService.singOut(
+      onDone: () {
+        Get.offAllNamed(Routs.loginScreen);
+        clearControllers();
+        update();
       },
       onError: (String e) {
         Get.snackbar(

@@ -20,4 +20,17 @@ class AuthService {
       onError(e.message.toString());
     }
   }
+
+  void singOut({
+    required Function() onDone,
+    required Function(String e) onError,
+  }) async {
+    try {
+      await FirebaseInstance.firebaseAuth.signOut();
+      onDone();
+    } on FirebaseAuthException catch (e) {
+   
+      onError(e.message.toString());
+    }
+  }
 }

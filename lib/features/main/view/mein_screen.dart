@@ -1,8 +1,5 @@
-import 'package:employees_app/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../auth/view/widget/button.dart';
 import '../logic/controller/main_controller.dart';
 
 class MainScreen extends StatelessWidget {
@@ -42,10 +39,9 @@ class MainScreen extends StatelessWidget {
             label: "غرفة الإجتماعات",
           ),
         ],
-        currentIndex: mainController.slectedIndex, // Corrected typo here
+        currentIndex: mainController.slectedIndex,
         onTap: (int index) {
-          print(index);
-          mainController.onItemTapped(index); // Call the correct function
+          mainController.onItemTapped(index);
         },
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color.fromARGB(255, 116, 113, 113),
@@ -55,15 +51,9 @@ class MainScreen extends StatelessWidget {
 }
 
 Widget selectedIcon({required Icon icon}) {
-  return Container(
+  return SizedBox(
     width: 60,
     height: 35,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20),
-      gradient: Get.isDarkMode
-          ? AppColors.backgroundColorDark
-          : AppColors.backgroundColorlight,
-    ),
     child: icon,
   );
 }
