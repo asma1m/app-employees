@@ -1,8 +1,6 @@
-import 'package:employees_app/core/theme/app_color.dart';
+
 import 'package:employees_app/features/profile/view/widget/settings_app.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import '../widget/hero_section.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -13,17 +11,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
-          children: [
-            SizedBox(height: Get.height * 0.05),
-            Container(
-              padding: const EdgeInsets.only(right: 20),
-              alignment: Alignment.centerRight,
-              height: Get.height * 0.1,
-              child: const Icon(Icons.menu),
-            ),
-            const HeroSection(),
-            SettingsApp()
-          ],
+          children: [ HeroSection(), SettingsApp()],
         ),
       ),
     );

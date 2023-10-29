@@ -1,3 +1,4 @@
+import 'package:employees_app/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,70 +16,76 @@ class MeetingRoomsCard extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Text(
             "غرف الاجتماعات  ",
-            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                color: const Color.fromARGB(255, 77, 71, 71),
-                fontFamily: "Tajawal"),
+            style: Theme.of(context).textTheme.headlineLarge!.copyWith(),
           ),
         ),
         SizedBox(
-          height: Get.height * 0.2,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: rooms.length,
-            itemBuilder: (context, index) => Expanded(
-              child: Container(
-                  margin: const EdgeInsets.all(5),
-                  padding: const EdgeInsets.only(
-                    right: 10,
-                  ),
-                  decoration: cardDecoration(context),
-                  //  width: Get.width * 0.55,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: Get.height * 0.09,
-                        child: SizedBox(
-                          height: Get.height * 0.1,
-                          child: Image(
-                            image: AssetImage(rooms[index]["image"].toString()),
+          height: Get.height * 0.02,
+        ),
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: rooms.length,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) => InkWell(
+            onTap: () => Get.toNamed(Routs.bookingRomm),
+            child: Container(
+                margin: const EdgeInsets.all(5),
+                decoration: cardDecoration(context),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Text(
+                            rooms[index]["name"].toString(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineLarge!
+                                .copyWith(
+                                    fontWeight: FontWeight.w400, fontSize: 20),
                           ),
                         ),
+                        SizedBox(height: Get.height * 0.02),
+                        Container(
+                          height: 30,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              color: rooms[index]["available"] == "متاح"
+                                  ? const Color.fromARGB(104, 153, 230, 157)
+                                  : const Color.fromARGB(108, 239, 185, 143),
+                              borderRadius: BorderRadius.circular(25)),
+                          child: Center(
+                              child: Text(
+                            rooms[index]["available"].toString(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineLarge!
+                                .copyWith(
+                                    fontSize: 12,
+                                    color: rooms[index]["available"] == "متاح"
+                                        ? Colors.green
+                                        : Colors.orange),
+                          )),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: Get.height * 0.08,
+                      padding: const EdgeInsets.all(5),
+                      margin: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border:
+                              Border.all(width: 1, color: AppColors.greyColor)),
+                      child: Image(
+                        image: AssetImage(rooms[index]["image"].toString()),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 45, left: 40),
-                            child: Text(
-                              rooms[index]["name"].toString(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.right,
-                            ),
-                          ),
-                          SizedBox(height: Get.height * 0.03),
-                          Container(
-                            height: 30,
-                            width: 60,
-                            decoration: BoxDecoration(
-                                color: rooms[index]["available"] == "متاح"
-                                    ? const Color.fromARGB(117, 117, 204, 122)
-                                    : const Color.fromARGB(123, 238, 137, 59),
-                                borderRadius: BorderRadius.circular(25)),
-                            child: Center(
-                                child: Text(
-                              rooms[index]["available"].toString(),
-                              style: Theme.of(context).textTheme.bodySmall,
-                            )),
-                          )
-                        ],
-                      ),
-                    ],
-                  )),
-            ),
+                    ),
+                  ],
+                )),
           ),
         ),
       ],

@@ -5,51 +5,42 @@ import "app_color.dart";
 ThemeData darkThemeData() {
   return ThemeData(
     fontFamily: 'Tajawal',
-    cardColor:
-        AppColors.darkGreyColor, 
-    highlightColor: AppColors.darkColor, 
-    dividerColor: AppColors.lightColor, 
-    focusColor: AppColors.mainColor, 
-    hintColor: AppColors.darkColor, 
-    hoverColor: AppColors.darkGreyColor, 
-    indicatorColor: AppColors.lightColor, 
-    brightness: Brightness.dark, 
-    scaffoldBackgroundColor:
-        AppColors.darkColor,
-    textTheme:
-        CustomTextTheme.textThemeDark, 
+    cardColor: AppColors.darkGreyColor,
+    highlightColor: AppColors.darkColor,
+    dividerColor: AppColors.lightColor,
+    focusColor: AppColors.mainColor,
+    hintColor: AppColors.darkColor,
+    hoverColor: AppColors.darkGreyColor,
+    indicatorColor: AppColors.lightColor,
+    brightness: Brightness.dark,
+    scaffoldBackgroundColor: AppColors.darkColor,
+    textTheme: CustomTextTheme.textThemeDark,
     drawerTheme: const DrawerThemeData(
-      backgroundColor:
-          AppColors.darkGreyColor,
-      scrimColor: AppColors.lightColor, 
+      backgroundColor: AppColors.darkGreyColor,
+      scrimColor: AppColors.lightColor,
     ),
     iconTheme: const IconThemeData(color: AppColors.mainColor),
     appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(
-        color: AppColors.mainColor,
+        color: Colors.white,
         fontSize: 20,
         fontWeight: FontWeight.bold,
         letterSpacing: 0.0,
       ),
-      backgroundColor:
-          AppColors.darkColor, 
+      backgroundColor: AppColors.darkColor,
       iconTheme: IconThemeData(color: AppColors.mainColor, size: 30),
       elevation: 0.0,
-      shadowColor:
-          AppColors.lightColor, 
+      shadowColor: AppColors.lightColor,
       centerTitle: true,
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: AppColors
-          .darkGreyColor, 
+      backgroundColor: AppColors.darkGreyColor,
       elevation: 5.0,
       selectedItemColor: AppColors.mainColor,
-      unselectedItemColor:
-          AppColors.greyColor, 
+      unselectedItemColor: AppColors.greyColor,
     ),
     dialogTheme: const DialogTheme(
-      backgroundColor:
-          AppColors.darkGreyColor, 
+      backgroundColor: AppColors.darkGreyColor,
       elevation: 0.0,
       alignment: Alignment.center,
       iconColor: AppColors.mainColor,
@@ -60,8 +51,7 @@ ThemeData darkThemeData() {
         letterSpacing: 0.0,
       ),
       contentTextStyle: TextStyle(
-        color: AppColors
-            .whiteColor, 
+        color: AppColors.whiteColor,
         fontSize: 18,
         fontWeight: FontWeight.normal,
         letterSpacing: 0.0,
@@ -74,11 +64,10 @@ ThemeData darkThemeData() {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        minimumSize: const Size(382, 41), 
+        minimumSize: const Size(382, 41),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         elevation: 0.4,
-        backgroundColor:
-            AppColors.whiteColor, 
+        backgroundColor: AppColors.whiteColor,
       ),
     ),
   );

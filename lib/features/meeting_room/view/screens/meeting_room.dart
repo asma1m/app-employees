@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widget/meeting_rooms_card.dart';
 
@@ -7,13 +8,17 @@ class MeetingRoomScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xff0096c7),
+      ),
       body: SafeArea(
           child: Column(children: [
         SizedBox(
-          height: 100,
+          height: Get.height * 0.05,
         ),
-        MeetingRoomsCard()
+        const MeetingRoomsCard(),
+       
       ])),
     );
   }

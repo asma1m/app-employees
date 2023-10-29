@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../../../auth/view/screen/login_screen.dart';
+import '../../../my_page/view/screens/my_page.dart';
 import '../../../profile/view/screen/profile_screen.dart';
 
 class MainController extends GetxController {
   final List<Widget> widgetOptions = [
     const ProfileScreen(),
-    const MeetingRoomScreen(),
+     MyPageSecrren(),
     const MeetingRoomScreen()
   ];
 
-  late int slectedIndex = 0;
+  late int slectedIndex = 2;
 
   onItemTapped(int index) {
     slectedIndex = index;

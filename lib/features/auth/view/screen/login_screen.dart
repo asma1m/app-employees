@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../logic/controller/auth_controller.dart';
-import '../widget/button.dart';
+import '../../../../common/widget/button.dart';
 import '../widget/text_field_widget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -63,6 +63,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: Get.height * 0.04),
                 Button(
+                  title: "تسجيل الدخول",
                   onTap: () async {
                     authController.signInWithEmail(
                         authController.emailController.text,
