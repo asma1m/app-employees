@@ -1,3 +1,4 @@
+import 'package:employees_app/features/book_room/view/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../logic/controller/timer_controller.dart';
@@ -9,36 +10,53 @@ class TimerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _buildTitle(context, "..ابدأ يومك"),
-        SizedBox(height: Get.height * 0.03),
-        Container(
-          height: Get.height * 0.12,
-          width: Get.width * 0.9,
-          decoration: _buildContainerDecoration(),
-          child: Row(
-            children: [
-              SizedBox(width: Get.width * 0.05),
-              GetBuilder<TimerController>(
-                builder: (controller) {
-                  return controller.isRunning
-                      ? _buildTimerButton(
-                          "توقف", const Color.fromARGB(255, 212, 138, 72), () {
-                          controller.stopTimer();
-                        })
-                      : _buildTimerButton(
-                          "ابدأ", const Color.fromARGB(255, 239, 229, 135), () {
-                          controller.startTimer();
-                        });
-                },
-              ),
-              SizedBox(width: Get.width * 0.2),
-              _buildTimeText(context),
-            ],
+    return GetBuilder<TimerController>(
+      builder: (controller) => Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: Get.height * 0.2),
+          Container(
+              width: Get.width,
+              alignment: Alignment.center,
+              child: _buildTimeText(context)),
+          SizedBox(height: Get.height * 0.15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 90),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _buildTimerButton2(
+                    onTap: () {
+                      controller.stopTimer();
+                    },
+                    icon: const Icon(
+                      Icons.play_arrow_outlined,
+                      color: Color(0xff00C2FF),
+                    )),
+                _buildTimerButton(
+                    onTap: () {
+                      controller.startTimer();
+                    },
+                    icon: const Icon(
+                      Icons.pause,
+                      color: Colors.white,
+                      size: 30,
+                    )),
+                _buildTimerButton2(
+                    onTap: () {
+                      controller.resetTimer();
+                    },
+                    icon: const Icon(
+                      Icons.refresh_outlined,
+                      color: Color(0xff00C2FF),
+                    )),
+              ],
+            ),
           ),
-        ),
-      ],
+          SizedBox(height: Get.height * 0.09),
+          const BouttonBooking2(title: "مهامي")
+        ],
+      ),
     );
   }
 
@@ -66,19 +84,41 @@ class TimerWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildTimerButton(
-      String text, Color backgroundColor, VoidCallback onPressed) {
+  Widget _buildTimerButton({required Icon icon, required VoidCallback onTap}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(25),
-      child: SizedBox(
-        height: 50,
-        width: 100,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
+      child: Container(
+        height: 60,
+        width: 60,
+        decoration: BoxDecoration(
+            color: const Color(0xff00C2FF),
+            borderRadius: BorderRadius.circular(50)),
+        child: InkWell(
+          onTap: onTap,
+          child: Container(
+            child: icon,
           ),
-          onPressed: onPressed,
-          child: Text(text),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTimerButton2({required Icon icon, required VoidCallback onTap}) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(25),
+      child: Container(
+        height: 50,
+        width: 50,
+        decoration: BoxDecoration(
+            border: Border.all(
+              color: const Color(0xff00C2FF),
+            ),
+            borderRadius: BorderRadius.circular(50)),
+        child: InkWell(
+          onTap: onTap,
+          child: Container(
+            child: icon,
+          ),
         ),
       ),
     );
@@ -92,7 +132,7 @@ class TimerWidget extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .headlineMedium!
-              .copyWith(fontSize: 30))),
+              .copyWith(fontSize: 30, color: Color(0xff00ADBB)))),
     );
   }
 }

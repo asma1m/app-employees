@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import '../../../../core/db/fierbase.istsn.dart';
 import '../../model/users_moder.dart';
@@ -8,6 +9,9 @@ import '../../model/users_moder.dart';
 class ProfileController extends GetxController {
   var userList = [];
   bool isLoding = false;
+  TextEditingController? controllerName = TextEditingController(text: "سارا");
+  TextEditingController? controllerEmail =
+      TextEditingController(text: "sara@gmail.com");
 
   @override
   void onInit() {

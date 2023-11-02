@@ -2,6 +2,7 @@ import 'package:employees_app/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../common/widget/custom_app_bar.dart';
 import '../../logic/controller/list_to_do_controller.dart';
 import '../../logic/controller/timer_controller.dart';
 import '../widget/text_filde_widget.dart';
@@ -17,19 +18,23 @@ class MyPageSecrren extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(
+        title: "",
+      ),
       body: SafeArea(
         child: Column(
           children: [
             SizedBox(height: Get.height * 0.05),
+
             TimerWidget(),
             SizedBox(height: Get.height * 0.03),
-            _buildTitle(context, "اكتب ملاحظاتك"),
-            const TextFild(),
+            // _buildTitle(context, "اكتب ملاحظاتك"),
+            // const TextFild(),
           ],
         ),
       ),
-      bottomNavigationBar:
-          _buildElevatedButton("+", listToDoController.AddNotes),
+      // bottomNavigationBar:
+      //     _buildElevatedButton("+", listToDoController.AddNotes),
     );
   }
 

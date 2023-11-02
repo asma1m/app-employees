@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class TextFildeWidget extends StatelessWidget {
-  const TextFildeWidget(
+  TextFildeWidget(
       {super.key,
       this.onChange,
       this.lableText,
       this.nameTextFilde,
       this.icon,
       required this.controller,
+      this.isPassWord = false,
       this.text});
   final TextEditingController controller;
   final String? text;
@@ -16,6 +17,7 @@ class TextFildeWidget extends StatelessWidget {
   final String? lableText;
   final String? nameTextFilde;
   final Icon? icon;
+  bool isPassWord;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class TextFildeWidget extends StatelessWidget {
             )),
         SizedBox(height: Get.height * 0.01),
         TextField(
+          obscureText: isPassWord,
           textAlign: TextAlign.end,
           onChanged: onChange,
           controller: controller,
@@ -43,7 +46,7 @@ class TextFildeWidget extends StatelessWidget {
             suffixIcon: icon,
             fillColor: Colors.grey[200],
             border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none),
             floatingLabelBehavior: FloatingLabelBehavior.never,
           ),

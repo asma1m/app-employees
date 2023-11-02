@@ -14,7 +14,7 @@ class SettingsApp extends StatelessWidget {
   void showLogoutDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (_) => const LogoutDialogWidget(),
+      builder: (_) => LogoutDialogWidget(),
     );
   }
 
@@ -53,36 +53,87 @@ class SettingsApp extends StatelessWidget {
 //-------
 
 class LogoutDialogWidget extends StatelessWidget {
-  const LogoutDialogWidget({Key? key}) : super(key: key);
+  LogoutDialogWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return DialogWidget(
+      height: Get.height * 0.2,
+      width: Get.width * 0.2,
       body: Column(
         children: [
-          const SizedBox(height: 20),
-          const Text("هل أنت متأكد من أنك تريد"),
-          const Text("تسجيل الخروج؟"),
-          const SizedBox(height: 24),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(50),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 220, 72, 62),
+          const SizedBox(height: 50),
+          // const Text("هل أنت متأكد من أنك "),
+          const Text(
+            "هل أنت متأكد من تسجيل الخروج ؟",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Container(
+                  height: 40,
+                  width: 90,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: const Color(0xff54565A),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: const Text(
+                    "إلغاء",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
                 ),
-                onPressed: () {
+              ),
+              InkWell(
+                onTap: () {
                   Get.find<AuthController>().SingOut();
                   Get.back();
                 },
-                child: const Text(
-                  'تسجيل الخروج',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                child: Container(
+                  height: 40,
+                  width: 90,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: const Color(0xffD9D9D9),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: const Text(
+                    "نعم",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-            ),
-          ),
+              )
+            ],
+          )
+
+          // Padding(
+          //   padding: const EdgeInsets.all(20),
+          //   child: ClipRRect(
+          //     borderRadius: BorderRadius.circular(50),
+          //     child: ElevatedButton(
+          //       style: ElevatedButton.styleFrom(
+          //         backgroundColor: const Color.fromARGB(255, 220, 72, 62),
+          //       ),
+          //       onPressed: () {
+          //         Get.find<AuthController>().SingOut();
+          //         Get.back();
+          //       },
+          //       child: const Text(
+          //         'تسجيل الخروج',
+          //         style: TextStyle(color: Colors.white, fontSize: 16),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

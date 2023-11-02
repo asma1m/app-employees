@@ -1,6 +1,7 @@
 import 'package:employees_app/core/const/keys.dart';
 import 'package:employees_app/core/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:get_storage/get_storage.dart';
@@ -31,8 +32,10 @@ class AuthController extends GetxController {
       },
       onError: (String e) {
         Get.snackbar(
-          'something went wrong',
-          e,
+          colorText: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 213, 90, 81),
+          'حدث خطاء ما',
+          "",
         );
       },
     );
@@ -48,8 +51,10 @@ class AuthController extends GetxController {
       },
       onError: (String e) {
         Get.snackbar(
-          'something went wrong',
-          e,
+          colorText: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 213, 90, 81),
+          'حدث خطاء ما',
+          "",
         );
       },
     );

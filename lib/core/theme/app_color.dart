@@ -10,21 +10,29 @@ class AppColors {
   static const Color darkColor = Color(0xff272626);
   static const Color darkGreyColor = Color(0xff505050);
   static const Color mainColor = Color(0xFF7A7B7C);
-  static const Color onPrimary = Color(0xFF04F1CC);
+  static const Color onPrimary = Color(0xff8CD5EB);
+  static const Color onPrimary2 = Color(0xff00ACBB);
   static const Color backgraund = Color.fromARGB(108, 34, 0, 255);
   static const Color purpleColor = Color(0xffF2ECFF);
 
-  // static LinearGradient backgroundColorDark = const LinearGradient(
-  //     begin: Alignment.topRight,
-  //     end: Alignment.bottomLeft,
-  //     colors: [
-  //       Color.fromARGB(108, 26, 179, 226),
-  //       darkColor,
-  //     ],
-  //     stops: [
-  //       00.011,
-  //       00.011
-  //     ]);
+  static LinearGradient backgroundColor = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      onPrimary,
+      whiteColor,
+    ],
+  );
+
+   static LinearGradient heroSectionColor = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+     
+      whiteColor,
+       onPrimary,
+    ],
+  );
   // static LinearGradient backgroundColorlight = const LinearGradient(
   //   begin: Alignment.topRight,
   //   end: Alignment.bottomLeft,

@@ -6,6 +6,7 @@ import 'package:get/route_manager.dart';
 import 'core/routes/routes.dart';
 import 'core/theme/controller/them_controller.dart';
 import 'features/auth/view/screen/login_screen.dart';
+import 'features/main/view/splash_screen.dart';
 import 'firebase_options.dart';
 import 'package:flutter/services.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeController().themeDataGet,
       theme: ThemeApp.lightTheme,
       darkTheme: ThemeApp.dartTheme,
-      home: LoginScreen(),
+      home: SplashScreen(),
       getPages: AppRoutes.routes,
     );
   }

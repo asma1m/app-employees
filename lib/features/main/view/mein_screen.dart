@@ -1,3 +1,4 @@
+import 'package:employees_app/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../logic/controller/main_controller.dart';
@@ -9,51 +10,77 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: GetBuilder<MainController>(
-      // Wrap with GetBuilder
-      builder: (controller) {
-        return IndexedStack(
-          index: controller.slectedIndex,
-          children: controller.widgetOptions,
-        );
-      },
-    ), bottomNavigationBar:
-        GetBuilder<MainController>(builder: (mainController) {
-      return BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            activeIcon: selectedIcon(icon: const Icon(Icons.person_outline)),
-            icon: const Icon(Icons.person_outline),
-            label: "الملف الشخصي",
-          ),
-          BottomNavigationBarItem(
-            activeIcon: selectedIcon(icon: const Icon(Icons.note_alt_outlined)),
-            icon: const Icon(Icons.note_alt_outlined),
-            label: "صفحتي",
-          ),
-          BottomNavigationBarItem(
-            activeIcon: selectedIcon(
-              icon: const Icon(Icons.home_outlined),
+    return Scaffold(
+        body: GetBuilder<MainController>(
+      builder: (controller) => Stack(
+        children: [
+          controller.widgetOptions[controller.slectedIndex],
+          Positioned(
+            top: Get.height * 0.85,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Container(
+                height: 80,
+                width: Get.width * 0.9,
+                decoration: const BoxDecoration(
+                    color: AppColors.onPrimary2,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: selectedIcon(),
+              ),
             ),
-            icon: const Icon(Icons.home_outlined),
-            label: "غرفة الإجتماعات",
-          ),
+          )
         ],
-        currentIndex: mainController.slectedIndex,
-        onTap: (int index) {
-          mainController.onItemTapped(index);
-        },
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color.fromARGB(255, 116, 113, 113),
-      );
-    }));
+      ),
+    ));
   }
 }
 
-Widget selectedIcon({required Icon icon}) {
-  return SizedBox(
-    width: 60,
-    height: 35,
-    child: icon,
+Widget selectedIcon() {
+  final MainController mainController =
+      Get.put(MainController(), permanent: true);
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: [
+      IconButton(
+        onPressed: () {
+          mainController.onItemTapped(0);
+        },
+        icon: const ImageIcon(AssetImage("assets/images/User.png")),
+        iconSize: 30,
+        color: mainController.slectedIndex == 0
+            ? Colors.white
+            : AppColors.onPrimary,
+      ),
+      IconButton(
+        onPressed: () {
+          mainController.onItemTapped(1);
+        },
+        icon: const ImageIcon(AssetImage("assets/images/Desk.png")),
+        iconSize: 30,
+        color: mainController.slectedIndex == 1
+            ? Colors.white
+            : AppColors.onPrimary,
+      ),
+      IconButton(
+        onPressed: () {
+          mainController.onItemTapped(2);
+        },
+        icon: const ImageIcon(AssetImage("assets/images/time.png")),
+        iconSize: 27,
+        color: mainController.slectedIndex == 2
+            ? Colors.white
+            : AppColors.onPrimary,
+      ),
+      IconButton(
+        onPressed: () {
+          mainController.onItemTapped(3);
+        },
+        icon: const ImageIcon(AssetImage("assets/images/booking.png")),
+        iconSize: 30,
+        color: mainController.slectedIndex == 3
+            ? Colors.white
+            : AppColors.onPrimary,
+      ),
+    ],
   );
 }

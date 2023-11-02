@@ -14,18 +14,18 @@ class Button extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: Get.width * 0.8,
+        width: Get.width * 0.9,
         height: Get.height * 0.06,
         decoration: BoxDecoration(
-          color: const Color(0xff0096c7),
-          borderRadius: BorderRadius.circular(25),
+          color: AppColors.onPrimary2,
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
           child: Text(
             title,
             style: const TextStyle(
                 color: AppColors.whiteColor,
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Tajawal"),
           ),
