@@ -16,76 +16,83 @@ class MeetingRoomsCard extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Text(
             "غرف الاجتماعات  ",
-            style: Theme.of(context).textTheme.headlineLarge!.copyWith(),
+            style: Theme.of(context)
+                .textTheme
+                .headlineLarge!
+                .copyWith(fontWeight: FontWeight.normal, fontSize: 20),
           ),
         ),
         SizedBox(
           height: Get.height * 0.02,
         ),
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: rooms.length,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => InkWell(
-            onTap: () => Get.toNamed(Routs.bookingRomm),
-            child: Container(
-                margin: const EdgeInsets.all(5),
-                decoration: cardDecoration(context),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: Text(
-                            rooms[index]["name"].toString(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineLarge!
-                                .copyWith(
-                                    fontWeight: FontWeight.w400, fontSize: 20),
+        SizedBox(
+          height: 160,
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: rooms.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) => InkWell(
+              onTap: () => Get.toNamed(Routs.bookingRomm),
+              child: Container(
+                  margin: const EdgeInsets.all(5),
+                  decoration: cardDecoration(context),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 40, left: 10),
+                            child: Text(
+                              rooms[index]["name"].toString(),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 20),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: Get.height * 0.02),
-                        Container(
-                          height: 30,
-                          width: 60,
-                          decoration: BoxDecoration(
-                              color: rooms[index]["available"] == "متاح"
-                                  ? const Color.fromARGB(104, 153, 230, 157)
-                                  : const Color.fromARGB(108, 239, 185, 143),
-                              borderRadius: BorderRadius.circular(25)),
-                          child: Center(
-                              child: Text(
-                            rooms[index]["available"].toString(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineLarge!
-                                .copyWith(
-                                    fontSize: 12,
-                                    color: rooms[index]["available"] == "متاح"
-                                        ? Colors.green
-                                        : Colors.orange),
-                          )),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      height: Get.height * 0.08,
-                      padding: const EdgeInsets.all(5),
-                      margin: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border:
-                              Border.all(width: 1, color: AppColors.greyColor)),
-                      child: Image(
-                        image: AssetImage(rooms[index]["image"].toString()),
+                          SizedBox(height: Get.height * 0.02),
+                          Container(
+                            height: 30,
+                            width: 60,
+                            decoration: BoxDecoration(
+                                color: rooms[index]["available"] == "متاح"
+                                    ? const Color.fromARGB(104, 153, 230, 157)
+                                    : const Color.fromARGB(108, 239, 185, 143),
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Center(
+                                child: Text(
+                              rooms[index]["available"].toString(),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge!
+                                  .copyWith(
+                                      fontSize: 12,
+                                      color: rooms[index]["available"] == "متاح"
+                                          ? Colors.green
+                                          : Colors.orange),
+                            )),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                )),
+                      Container(
+                        height: Get.height * 0.08,
+                        padding: const EdgeInsets.all(5),
+                        margin: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                                width: 1, color: AppColors.greyColor)),
+                        child: Image(
+                          image: AssetImage(rooms[index]["image"].toString()),
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
           ),
         ),
       ],

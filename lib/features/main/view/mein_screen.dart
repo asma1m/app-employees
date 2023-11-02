@@ -27,6 +27,13 @@ class MainScreen extends StatelessWidget {
             label: "الملف الشخصي",
           ),
           BottomNavigationBarItem(
+            activeIcon: selectedIcon(
+              icon: const Icon(Icons.camera_front_rounded),
+            ),
+            icon: const Icon(Icons.camera_front_rounded),
+            label: "بطاقتي",
+          ),
+          BottomNavigationBarItem(
             activeIcon: selectedIcon(icon: const Icon(Icons.note_alt_outlined)),
             icon: const Icon(Icons.note_alt_outlined),
             label: "صفحتي",

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widget/events.dart';
 import '../widget/meeting_rooms_card.dart';
 
 class MeetingRoomScreen extends StatelessWidget {
@@ -18,7 +19,10 @@ class MeetingRoomScreen extends StatelessWidget {
           height: Get.height * 0.05,
         ),
         const MeetingRoomsCard(),
-       
+        SizedBox(
+          height: Get.height * 0.05,
+        ),
+        const EventsCard()
       ])),
     );
   }
