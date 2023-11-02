@@ -14,7 +14,7 @@ class SettingsApp extends StatelessWidget {
   void showLogoutDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (_) => const LogoutDialogWidget(),
+      builder: (_) => LogoutDialogWidget(),
     );
   }
 
@@ -53,11 +53,13 @@ class SettingsApp extends StatelessWidget {
 //-------
 
 class LogoutDialogWidget extends StatelessWidget {
-  const LogoutDialogWidget({Key? key}) : super(key: key);
+  LogoutDialogWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return DialogWidget(
+      height: Get.height * 0.3,
+      width: Get.width * 0.2,
       body: Column(
         children: [
           const SizedBox(height: 20),
